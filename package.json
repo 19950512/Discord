@@ -1,0 +1,24 @@
+{
+  "name": "Discord",
+  "version": "1.0.0",
+  "description": "Tux é um bot para discord, completamente genérico, escrito em NodeJS, utilizando boas praticas de desenvolvimento facilitando a implementação e utilização do mesmo. Com Tux, você consegue adapta-lo para sua necessidade, utilizando em diversos cenários, jogos, reuniões, empresas, etc..",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19950512/Discord.git"
+  },
+  "keywords": [],
+  "author": "Matheus Maydana <mattmaydana@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19950512/Discord/issues"
+  },
+  "homepage": "https://github.com/19950512/Discord#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  }
+}
