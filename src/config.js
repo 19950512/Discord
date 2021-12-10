@@ -4,5 +4,5 @@ dotenv.config()
 
 module.exports = {
     BOT_NOME: process.env.BOT_NOME,
-    DISCORD_API: process.env.DISCORD_API
+    API_TOKEN: process.env.API_TOKEN
 }

@@ -50,7 +50,7 @@ Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as vers�
 
 Aqueles que ajudaram a levantar o projeto desde o seu início
 
-* **19995012** - *Trabalho Inicial* - [19995012](https://github.com/19995012)
+* **19950512** - *Trabalho Inicial* - [19950512](https://github.com/19950512)
 
 ## 📄 Licença
 
