@@ -1,23 +1,29 @@
 
 'use strict';
 
+
+const Private = require('./BusinessRules/Private.js');
+const Soma = require('./BusinessRules/Soma.js');
+
+
 // Aqui vai a regra de negócio do BOT. - Message
 class Message {
 
-    // Response Private MSG
-    private(message){
-        if(message.channel.type == 'dm'){
-            message.author.send(`<@${message.author.id}> san eu não posso falar com você. \n:point_right: :point_left:`).catch(error => {return;}) 
-        }
+    constructor(){
+        this.private = new Private();
+        this.soma = new Soma();
     }
 };
 
 module.exports = class Events extends Message {
 
-    constructor(client, BOT_NOME){
+    constructor(client, BOT_NOME, BOT_PREFIXO){
         super();
         this.client = client;
         this.BOT_NOME = BOT_NOME;
+        this.BOT_PREFIXO = BOT_PREFIXO
+
+        console.log(BOT_PREFIXO);
     }
 
     addEventListener(){
@@ -26,9 +32,15 @@ module.exports = class Events extends Message {
             console.log(`O bot foi iniciado, com ${this.client.users.cache.size} usuários e em ${this.client.guilds.cache.size} servidores.`);
             this.client.user.setActivity(this.BOT_NOME, { type: 'PLAYING' });
         });
-        
+
         this.client.on("message", async message => {
-            this.private(message);
+
+            // Se for Bot, ignora, pois um bot não fala com outro, será?
+            if(message.author.bot){
+                return;
+            };
+
+            this.private.send(message);
         });
     }
 }
