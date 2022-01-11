@@ -1,0 +1,8 @@
+module.exports = {
+    servidores: [
+        {
+            "nome":"NOME DO SERVIDOR",
+            "id":"ID DO SERVIDOR"
+        }
+    ]
+}

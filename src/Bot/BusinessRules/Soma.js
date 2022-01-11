@@ -1,5 +1,3 @@
-const {MessageAttachment} = require('discord.js')
-
 module.exports = {
     name: 'soma',
     category: "Calculos",
