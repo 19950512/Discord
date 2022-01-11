@@ -36,7 +36,7 @@ var argumentos = process.argv.slice(2);
 if(argumentos[0] == '--data'){
 
 	let data = argumentos[1]
-	let buff = new Buffer(data, 'base64');
+	let buff = new Buffer.from(data, 'base64');
 	let text = buff.toString('ascii');
 
 	data = JSON.parse(text)
@@ -66,9 +66,12 @@ if(argumentos[0] == '--data'){
 				files,
 				embeds: data['embeds']
 			})
-			.then(f => console.log('Mensagem enviada.'))
+			.then(f => {
+				console.log('Mensagem enviada.')
+				process.exit(1)
+			})
 			.catch(console.error);
-			break
+			return
 		}
 	}
 }

@@ -20,7 +20,7 @@ $a = [
   'mensagem' => 'Allow',
 ];
 
-$a = [
+/* $a = [
   'bot_id' => 2,
   'mensagem' => 'Allow',
   'embeds' => [
@@ -31,7 +31,7 @@ $a = [
       ]
     ]
   ]
-];
+]; */
 
 echo base64_encode(json_encode($a));
 
