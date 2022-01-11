@@ -1,5 +1,9 @@
-module.exports = class Soma {
-    soma(message){
-        message.author.send(`qual o valor?`).catch(error => {return;}) 
+const {MessageAttachment} = require('discord.js')
+
+module.exports = {
+    name: 'soma',
+    category: "Calculos",
+    run: async (client, message, args) => {
+        message.channel.send('1, 2, 3, 4 ...')
     }
 }
