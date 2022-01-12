@@ -31,9 +31,14 @@ module.exports = {
             }
             
             let result = await searcher.search(search, {type: "video"}).then().catch(e => {
-                
+
                 if(e.message.includes('quotaExceeded')){
                     message.channel.send(`Google API - Excedeu a cota.`)
+                    return
+                }
+
+                if(e.message.includes('No token')){
+                    message.channel.send(`Google API - Você precisa informar o Token da API.`)
                     return
                 }
 

@@ -8,3 +8,16 @@ if(versionAtual < versaoNecessaria.split('.')[0]){
     console.log(`Sua versão: ${process.version}`)
     process.exit(1)
 }
+
+const checkModule = module => {
+    try {
+        console.log(require.resolve(module));
+    } catch(e) {
+        console.error(`Você precisa instalar o ${module} ou use -> npm i`);
+        process.exit(e.code);
+    }
+}
+
+checkModule('ytdl-core');
+checkModule('ytsearcher');
+checkModule('ytsearcher');
