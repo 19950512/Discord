@@ -20,4 +20,4 @@ const checkModule = module => {
 
 checkModule('ytdl-core');
 checkModule('ytsearcher');
-checkModule('ytsearcher');
+checkModule('sqlite3');
