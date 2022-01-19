@@ -1,46 +1,74 @@
 "use strict";
 
-const db = require('./db')
+const SQLite = require('./db')
 
 const Util = require('../Util/Math')
 
-const operacao = new db('game');
 
+const databaseName = 'game'
+
+const db = new SQLite(databaseName);
 
 // Conectar a um DB
-//let conectar = operacao.connect('musicas')
+//let conectar = db.connect('musicas')
 
-// criar tabelas
-/* let tabela = operacao.table('pessoas', [
+// INICIO criar tabelas
+
+// pessoas
+/* db.table('pessoas', [
     'nome TEXT', 'idade INTEGER'
-]);
-console.log(tabela) */
-let tabela = operacao.table('players', [
+], created => {
+    console.log(`A tabela existe? ${created}`)
+});
+
+
+// players
+db.table('players', [
     'nome TEXT', 'idade INTEGER'
-]);
-console.log(tabela)
+], created => {
+    console.log(`A tabela existe? ${created}`)
+}); */
 
-// Inserir Linhas
-/* let linhas = operacao.insert('pessoas', {
-    nome: 'Rita', idade: Util.random()
-}) 
-console.log(linhas) */
+// FIM criar tabelas
 
-let linhas = operacao.insert('players', {
-    nome: 'Morgana', idade: Util.random()
-}) 
-console.log(linhas)
 
-// Ver as linhas
-/* let pessoas = async callback => await operacao.select(`SELECT * FROM pessoas`, callback);
 
-pessoas(resultados => console.log(resultados)) */
 
-let players = async callback => await operacao.select(`SELECT * FROM players`, callback);
 
-players(resultados => console.log(resultados))
 
-/* 
-let countpessoas = async callback => await operacao.select(`SELECT count(nome) AS total FROM pessoas WHERE nome = 'Rita'`, callback);
 
-countpessoas(resultados => console.log(resultados)) */
+
+
+
+// INICIO Inserir Linhas
+// Insert Pessoas
+/* db.insert('pessoas', {
+    nome: 'Rita', idade: Util.random(12, 18)
+}, created => {
+    console.log(`Inseriu? ${created}`)
+});
+
+// Insert Players
+db.insert('players', {
+    nome: `Morgana-${Util.random(18, 35)}`, idade: Util.random(18, 35)
+}, created => {
+    console.log(`Inseriu? ${created}`)
+}); */
+// FIM Inserir Linhas
+
+
+
+
+
+
+
+
+// INICIO consultas
+/* db.select(`SELECT * FROM pessoas`, resultados => console.log(resultados));
+
+db.select(`SELECT * FROM players`, resultados => console.log(resultados));
+
+db.select(`SELECT count(nome) AS total FROM pessoas WHERE nome = 'Rita'`, resultados => {
+    console.log(` A um total de: ${resultados[0]['total']} Ritas.`)}
+); */
+// FIM consultas
