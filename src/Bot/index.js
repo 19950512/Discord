@@ -15,4 +15,12 @@ client.commands = new Discord.Collection();
 const DiscordChannel = new Events(client, BOT_NOME, BOT_PREFIXO);
 DiscordChannel.addEventListener();
 
-client.login(API_TOKEN);
+client.login(API_TOKEN).catch(erro => {
+
+    if(erro.message.includes('An invalid token was provided')){
+        console.log('Token do Discord inválido.')
+        process.exit(0)
+    }
+
+    console.log('Parece que deu erro do bot com o Discord.')
+});

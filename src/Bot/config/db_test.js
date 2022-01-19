@@ -1,9 +1,9 @@
 "use strict";
+require('../requireds')
 
 const SQLite = require('./db')
 
 const Util = require('../Util/Math')
-
 
 const databaseName = 'game'
 
@@ -72,3 +72,6 @@ db.select(`SELECT count(nome) AS total FROM pessoas WHERE nome = 'Rita'`, result
     console.log(` A um total de: ${resultados[0]['total']} Ritas.`)}
 ); */
 // FIM consultas
+
+
+console.log('Fim do test')
